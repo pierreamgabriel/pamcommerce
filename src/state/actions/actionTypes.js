@@ -1,0 +1,1 @@
+export const SET_ADMIN_LANG = "SET_ADMIN_LANG";
