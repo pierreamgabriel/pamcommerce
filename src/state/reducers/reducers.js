@@ -1,8 +1,12 @@
 import { combineReducers } from 'redux';
-import setAdminLang from './adminLang';
+import setInstallDetails from './installDetails';
+import setAdminComponent from './adminComponent';
+import setSettings from './siteSettings';
 
 const reducers = combineReducers({
-	adminLang: setAdminLang,
+	installDetails: setInstallDetails,
+	adminComponent: setAdminComponent,
+	settings: setSettings,
 });
 
 export default reducers;
