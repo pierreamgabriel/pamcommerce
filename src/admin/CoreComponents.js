@@ -10,7 +10,7 @@ switch(cp.name) {
 		
 	case "products":
 	return(
-	<div className="container-fluid">
+	<div className="container-fluid core-main">
 	<Products />	
 	</div>
 	);	

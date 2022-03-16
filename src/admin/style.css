@@ -92,6 +92,11 @@ max-width: 2rem;
 max-width: 150px;
 margin-top: 15px;	
 }
+/* Components General */
+.core-main {
+background-color: #f7f7f7;
+min-height: 100vh;	
+}
 /* Products */
 .add-products {
 margin-top: 20px !important;
