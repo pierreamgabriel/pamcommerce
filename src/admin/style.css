@@ -1,0 +1,104 @@
+/* Installation */
+.install-page {
+background-color: #cceeff;
+min-height: 100vh;	
+}
+.install-logo {	
+padding-bottom: 20px;
+margin: auto;
+margin-top: 1%;	
+max-width: 500px;	
+}
+.install-logo-img {
+max-width: 200px;	
+}
+.install-form-main {
+max-width: 500px;
+margin: auto;
+margin-top: 2%;	
+background-color: #ffffff;	
+padding: 1rem;
+border-radius: 3px;	
+border: 1px solid #ccc;	
+}
+.install-title {
+margin-bottom: 1rem;	
+}
+.install-label {
+font-weight: bold;	
+}
+.install-db-text {
+margin-top: 0.5rem;
+font-size: 0.9rem;
+font-style: italic;	
+}
+.install-db-success {
+display: none;
+}
+.install-db-error {
+border: 1px solid red;	
+display: block;	
+margin-top: 1rem;	
+}
+.install-finish-title {
+margin-bottom: 2rem;	
+}
+/* Top bar */
+.admin-top-bar {
+background-color: #282e33;
+color: #ffffff;
+height: 35px;
+padding-top: 0.5rem;	
+}
+.top-bar-icons {
+font-size: 1.5rem;	
+}
+/* Left Sidebar */
+.admin-leftbar-main {
+width: 100%;
+max-width: 250px;	
+background-color: #282e33;
+height: 100vh;	
+left: 0;
+margin-left: 0;	
+float: left;
+padding-top:1rem;	
+}
+.admin-leftbar-row {
+height: 45px;
+color: #ffffff;
+font-size: 1.1rem;
+font-weight: bold;	
+}
+.admin-leftbar-row:hover {
+background-color: #212020;	
+color: #ffffff;	
+cursor: default;
+}
+.admin-leftbar-active {
+height: 45px;
+color: #333;
+background-color: #e2edea;	
+font-size: 1.1rem;
+font-weight: bold;	
+}
+.admin-leftbar-col {
+margin-top: 0.6rem;	
+}
+.admin-leftbar-left-col {
+max-width: 2rem;	
+}
+.admin-left-bar-logo {
+max-width: 150px;
+margin-top: 15px;	
+}
+/* Products */
+.add-products {
+margin-top: 20px !important;
+float: right;	
+}
+.products-table {
+height: 400px; 
+width: 100%;
+margin-top: 100px;	
+}
