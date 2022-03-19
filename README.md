@@ -8,6 +8,9 @@ Hi everyone. I'm developing an e-commerce platform with ReactJS, PHP, and MySQL.
 # Screenshots
 
 <p align="center">
+<img src="screenshots/screenshot4.jpeg">
+</p>
+<p align="center">
 <img src="screenshots/screenshot1.jpeg">
 </p>
 <p align="center">
