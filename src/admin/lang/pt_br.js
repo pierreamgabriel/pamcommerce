@@ -34,15 +34,32 @@ export const _install = [
 
 export const _leftSideBar = [
 
-{"Painel": "icofont-dashboard-web"},	
-{"Produtos": "icofont-shopping-cart"},
-{"Categorias": "icofont-tags"},
-{"Descontos": "icofont-sale-discount"},
-{"Pedidos": "icofont-chart-growth"},
-{"Clientes": "icofont-users-social"},	
-{"Páginas": "icofont-page"},	
-{"Layout": "icofont-layout"},
-{"Configurações": "icofont-ui-settings"},	
-{"Administração": "icofont-user"}	
+{"Painel": "icofont-dashboard-web", "key": "Dashboard"},	
+{"Produtos": "icofont-shopping-cart", "key": "Products"},
+{"Categorias": "icofont-tags", "key": "Categories"},
+{"Descontos": "icofont-sale-discount", "key": "Discounts"},
+{"Pedidos": "icofont-chart-growth", "key": "Orders"},
+{"Clientes": "icofont-users-social", "key": "Customers"},	
+{"Páginas": "icofont-page", "key": "Pages"},	
+{"Layout": "icofont-layout", "key": "Layout"},
+{"Configurações": "icofont-ui-settings", "key": "Settings"},	
+{"Usuários": "icofont-user", "key": "Users"}	
 
+];
+
+export const addProducts = [
+
+"Voltar para a lista de produtos",
+"Nome do produto",
+"Descrição",
+"Imagens",
+"Ocorreu um erro ao fazer o upload da imagem. Por favor tente novamente.",
+"Se você pressionar o botão deletar, a imagem da direita irá substituir a imagem deletada. Para prevenir isso, utilize o botão editar.",
+"Preço e quantidade",
+"Preço",
+"Preço promocional", 
+"Quantidade",
+"Máximo por compra",
+"Salvar" 
+    
 ];
