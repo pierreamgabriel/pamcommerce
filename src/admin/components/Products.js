@@ -90,14 +90,14 @@ export function Products() {
           <div className='container-fluid new-product-main'>
        &nbsp;
        <div style={{fontSize: "1.4rem"}}>
-           <i class="icofont-arrow-left" style={{marginRight: "5px"}}></i>
+           <i className="icofont-arrow-left" style={{marginRight: "5px"}}></i>
            <span>{langFile.addProducts[0]}</span>
         </div>       
-       <div class="mb-3" style={{marginTop: "4rem"}}>  
+       <div className="mb-3" style={{marginTop: "4rem"}}>  
       <h4 className='form-label add-product-label'>{langFile.addProducts[1]}</h4>      
       <input type="name" name="name" className="form-control" value={product.name} onChange={productDetails}></input>
       </div>
-      <div class="mb-3">  
+      <div className="mb-3">  
       <h4 className='form-label add-product-label'>{langFile.addProducts[2]}</h4>   
       <ReactQuill theme="snow" value={product.description} onChange={textEditor}  modules={modules}/>   
       </div>
@@ -127,7 +127,7 @@ export function Products() {
       onChange={productDetails} className="form-control" />  
     </div>      
       </div>
-      <button type="button" class="btn btn-secondary" style={{marginTop: "1rem"}}>{langFile.addProducts[11]}</button>
+      <button type="button" className="btn btn-secondary" style={{marginTop: "1rem"}}>{langFile.addProducts[11]}</button>
           </div>
         );
       }
@@ -162,28 +162,28 @@ export function Products() {
         }
 
           return(
-            <div class="row" style={{marginBottom: "1.5rem"}}>
-            <h4 className='form-label add-product-label'>{prop.lang[3]}</h4>    
+            <div className="row" style={{marginBottom: "1.5rem"}}>
+            <h4 className='form-label add-product-label'>{prop.lang[3]}</h4>
+            <div className="card-group">
             {img.images.map((img, index) => {
             return(    
-            <div class="col" key={index} className="list-product-img-div">
-            <div style={{minHeight: "72px", marginLeft: "5px"}}>
-               <img src={img} className="list-product-img"/>
-               </div>
-               <div>
-               <i class="icofont-edit" style={{marginRight: "5px"}}></i> 
-               <i class="icofont-ui-delete"></i>    
-               </div>
+            <div className="card list-product-img-div" key={index}>  
+            <span>
+            <i className="icofont-edit" style={{marginRight: "5px"}}></i>
+            <i className="icofont-ui-delete"></i> 
+            </span>   
+            <img src={img} className="list-product-img"/>  
           </div> 
             );   
             })}    
-            <div class="col add-product-img-icon">
+            <div className="card add-product-img-icon">
                  <p>{progress && <CircularProgress />}</p>
                  <label for="add-product-image">
-                 <i class="icofont-plus-circle" style={{fontSize: "25px"}}></i>    
+                 <i className="icofont-plus-circle" style={{fontSize: "25px"}}></i>    
                  </label>   
                  <input type="file" id="add-product-image" accept=".jpg, .png"
                  onChange={processImage}/>
+            </div>
             </div>
             {error && <p>{prop.lang[4]}</p>}
           </div>  
