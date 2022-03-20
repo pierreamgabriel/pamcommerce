@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { setSettings, setAdminComponent } from '../state/';
 import CoreComponents from './CoreComponents';
@@ -54,15 +54,16 @@ function LeftBar(prop) {
 const langFile = require('./lang/' + prop.lang);
 const dispatch = useDispatch();	
 const active = useSelector((state) => state.adminComponent);	
-const bgColor = (arg) =>{
-dispatch(setAdminComponent({key: "key", value: arg}));	
+const setCP = (arg) =>{
+dispatch(setAdminComponent({"component": arg, "subcomponent": ""}));	
 }	
 	
 	return(
 	<div className="container-fluid admin-leftbar-main">
 	{langFile._leftSideBar.map((icon, index) => {
+	const cp = Object.values(icon)[1];	
 	return(
-	<div className={active.key === index ? "row admin-leftbar-active" : "row admin-leftbar-row"} key={index} onClick={() => bgColor(index)}>
+	<div className={active.component === cp ? "row admin-leftbar-active" : "row admin-leftbar-row"} key={index} onClick={() => setCP(cp)}>
 	<div className="col admin-leftbar-col admin-leftbar-left-col"><i className={Object.values(icon)[0]} /></div>
 	<div className="col admin-leftbar-col">{Object.keys(icon)[0]}</div>	
 	</div>
