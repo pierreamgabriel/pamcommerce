@@ -48,7 +48,9 @@ margin-bottom: 2rem;
 background-color: #282e33;
 color: #ffffff;
 height: 35px;
-padding-top: 0.5rem;	
+padding-top: 0.5rem;
+position: fixed;
+z-index: 9999;	
 }
 .top-bar-icons {
 font-size: 1.5rem;	
@@ -56,13 +58,12 @@ font-size: 1.5rem;
 /* Left Sidebar */
 .admin-leftbar-main {
 width: 100%;
-max-width: 250px;	
-background-color: #282e33;
-height: 100vh;	
-left: 0;
-margin-left: 0;	
-float: left;
-padding-top:1rem;	
+max-width: 12vw;	
+background-color: #282e33;		
+padding-top:3rem;	
+position: fixed;
+z-index: 9990;
+min-height: 100vh;
 }
 .admin-leftbar-row {
 height: 45px;
@@ -95,10 +96,13 @@ margin-top: 15px;
 /* Components General */
 .core-main {
 background-color: #f7f7f7;
-min-height: 100vh;	
+min-height: 100vh;
+padding-top: 2rem;
+margin-left: 12vw;	
+max-width:  calc(100% - 12vw);
 }
 /* Products */
-.add-products {
+.add-product-button {
 margin-top: 20px !important;
 float: right;	
 }
@@ -106,4 +110,32 @@ float: right;
 height: 400px; 
 width: 100%;
 margin-top: 100px;	
+}
+.new-product-main {
+max-width: 800px;    
+}
+.add-product-label {
+margin-bottom: 1rem;    
+}
+.ql-toolbar {
+background-color: #ffffff;    
+}
+.ql-editor {
+background-color: #ffffff;
+min-height: 15rem;  
+}
+#add-product-image {
+display: none;    
+}
+.add-product-img-icon {
+max-width: 110px; 
+text-align: center;  
+}
+.list-product-img-div { 
+max-width: 110px; 
+margin-right: 10px;
+}
+.list-product-img { 
+max-height: 70px; 
+max-width: 110px;
 }
