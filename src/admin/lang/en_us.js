@@ -63,3 +63,16 @@ export const addProducts = [
 "Save" 
 
 ];
+
+export const addCategories = [
+
+"Add New Category",
+"Display name", 
+"How the category name will appear on the site.",
+"URL name",
+"The way the category name will appear in the URL. It must be all lowercase and without space. If the category name has two or more words, you can use hyphens to separate them.",
+"Parent category",
+"If you assign a parent category to a category, you create a subcategory that will appear after the parent category in the URL and menus.",
+"Add Category"
+
+];

@@ -63,3 +63,16 @@ export const addProducts = [
 "Salvar" 
     
 ];
+
+export const addCategories = [
+
+"Adicionar Nova Categoria",
+"Nome de exibição", 
+"A forma como o nome da categoria será exibido no site.",
+"Nome na URL",
+"A forma como o nome da categoria aparecerá na URL. Deve ser tudo em minúsculo e sem espaços. Se o nome da categoria tiver duas ou mais palavras, você pode utilizar hífen para separá-los.",
+"Categoria pai",
+"Se você designar uma categoria pai para uma categoria, você está criando uma subcategoria que aparecerá depois da categoria pai na URL e menus.",
+"Adicionar Categoria"
+    
+];
