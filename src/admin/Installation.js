@@ -30,7 +30,7 @@ await axios.post('./api/create-db-config.php', {
   });
 axios.post('./api/create-db.php', {})
 .then(function(response) {	
-if (response.data.msg == 0) {
+if (response.data.error == true) {
 setCreateDB("install-db-error");	
 } else {
 setCreateDB("install-db-success");	
@@ -46,7 +46,7 @@ await axios.post('./api/create-db-table.php', {
 	password: db.password,
 	language: site.lang
   }).then((response) => {	
-if (response.data.msg == 0) {
+if (response.data.error == true) {
 setCreateDB("install-db-error");	
 } else {
 setCreateDB("install-db-success");	
