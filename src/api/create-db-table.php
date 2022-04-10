@@ -58,10 +58,10 @@ $db_conn->query($sql_insert_user);
 $db_conn->query($sql_insert_site);
 	
 } catch(mysqli_sql_exception $e){
-  echo json_encode(["msg" => 0 . $e]);	
+  echo json_encode(["error" => true, "msg" => $e]);	
 }	
 } catch(mysqli_sql_exception $e) {
-  echo json_encode(["msg" => 0 . $e]);	
+  echo json_encode(["error" => true, "msg" => $e]);	
 }
 
 ?>
