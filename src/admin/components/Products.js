@@ -65,7 +65,7 @@ export function Products() {
         const product = useSelector((state) => state.productDetails);
         const productDetails = (e) => {
         const { name, value, type} = e.target;  
-        console.log(product);  
+        
         if (type == "number") {
         dispatch(addProductDetails({[name]: parseInt(value)}));     
         } else {
