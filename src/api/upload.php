@@ -1,7 +1,7 @@
 <?php 
 header('Content-Type: application/json; charset=utf-8');
 header("Access-Control-Allow-Origin: *");
-header("Access-Control-Allow-Methods: PUT, GET, POST");
+header("Access-Control-Allow-Methods: POST");
 
 $response = array();
 $dir = '../uploads/';
@@ -50,9 +50,8 @@ if($_FILES['image'])
 
     if($error > 0){
         $response = array(
-            "status" => "error",
             "error" => true,
-            "message" => "Error uploading the file!"
+            "msg" => "Error uploading the file!"
         );
     }else 
     {
@@ -65,14 +64,12 @@ if($_FILES['image'])
     
         if(move_uploaded_file($tempFileName , $upload_img_name)) {
             $response = array(
-                "status" => "success",
                 "error" => false,
                 "url" => $urlServer."/".$img_url
               );
         }else
         {
             $response = array(
-                "status" => "error",
                 "error" => true
             );
         }
@@ -80,7 +77,6 @@ if($_FILES['image'])
 
 }else{
     $response = array(
-        "status" => "error",
         "error" => true
     );
 }
