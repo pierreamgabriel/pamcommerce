@@ -12,10 +12,10 @@ const dispatch = useDispatch();
 const site = useSelector((state) => state.settings);	
 	
 useEffect(() => {
-axios.post('./api/read.php', {
+axios.post('./api/read-delete.php', {
+	task: 'read',
     table: 'settings',
   }).then(function (response) {
-console.log(response);	
 response.data.all_data.map((data) => {
 const name = Object.keys(data)[1];
 const value = Object.values(data)[1];
