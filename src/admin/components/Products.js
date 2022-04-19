@@ -16,10 +16,10 @@ export function Products() {
     };
 
     const columns = [
-      { field: 'id', headerName: 'ID', flex: 1 },
-      { field: 'product', headerName: 'Product Name', flex: 1 },
-      { field: 'quantity', headerName: 'Quantity', flex: 1 },
-      { field: 'price', headerName: 'Price', flex: 1 },	
+      { field: 'id', headerName: 'ID', width: 70 },
+      { field: 'product', headerName: 'Product Name', width: 500 },
+      { field: 'quantity', headerName: 'Quantity', width: 90 },
+      { field: 'price', headerName: 'Price', width: 90 },	
       { field: 'url', headerName: 'URL', flex: 1 },	
     ];	
     const rows = [
@@ -31,7 +31,7 @@ export function Products() {
         <div className="row">
         <div className="col">
         <Button variant="contained" className="add-product-button" onClick={() => 
-            setSubCP("AddProduct")}>Add Product</Button>
+            setSubCP("AddProduct")}><i class="icofont-shopping-cart" style={{marginRight: "5px"}}></i>Add Product</Button>
         </div>	
         </div>
         <div className="row">
@@ -44,11 +44,15 @@ export function Products() {
             checkboxSelection
             sx={{
               boxShadow: 2,
-              border: 2,
+              border: 1,
               borderColor: '#ccc',
+              backgroundColor: '#ffffff',
               '& .MuiDataGrid-cell:hover': {
                 color: 'primary.main',
               },
+              '& .MuiDataGrid-columnHeaderTitle': {
+                fontWeight: 'bold',
+              }
             }}
           />
         </div>
@@ -89,21 +93,24 @@ export function Products() {
         return(
           <div className='container-fluid new-product-main'>
        &nbsp;
-       <div style={{fontSize: "1.4rem"}}>
+       <div style={{fontSize: "1.1rem"}}>
            <i className="icofont-arrow-left" style={{marginRight: "5px"}}></i>
            <span>{langFile.addProducts[0]}</span>
-        </div>       
-       <div className="mb-3" style={{marginTop: "4rem"}}>  
-      <h4 className='form-label add-product-label'>{langFile.addProducts[1]}</h4>      
+        </div>   
+        <div className="shadow-sm add-product-box">    
+       <div className="mb-3">  
+      <h5 className='form-label add-product-label'>{langFile.addProducts[1]}</h5>      
       <input type="name" name="name" className="form-control" value={product.name} onChange={productDetails}></input>
       </div>
-      <div className="mb-3">  
-      <h4 className='form-label add-product-label'>{langFile.addProducts[2]}</h4>   
+      <div>  
+      <h5 className='form-label add-product-label'>{langFile.addProducts[2]}</h5>   
       <ReactQuill theme="snow" value={product.description} onChange={textEditor}  modules={modules}/>   
       </div>
+      </div>
       <AddImages lang={langFile.addProducts}/>
+      <div className="shadow-sm add-product-box">
       <div className="row">
-      <h4 className='form-label add-product-label'>{langFile.addProducts[6]}</h4>    
+      <h5 className='form-label add-product-label'>{langFile.addProducts[6]}</h5>    
       <div className="col">
       <label className="form-label">{langFile.addProducts[7]}</label> 
       <input type="number" name="price" value={product.price} 
@@ -127,7 +134,10 @@ export function Products() {
       onChange={productDetails} className="form-control" />  
     </div>      
       </div>
-      <button type="button" className="btn btn-secondary" style={{marginTop: "1rem"}}>{langFile.addProducts[11]}</button>
+      </div>
+      <Button variant="contained" type="button" 
+      style={{marginTop: "1rem", marginBottom: "1rem"}}>
+        <i class="icofont-save" style={{marginRight: "5px"}}></i>{langFile.addProducts[11]}</Button>
           </div>
         );
       }
@@ -162,8 +172,9 @@ export function Products() {
         }
 
           return(
-            <div className="row" style={{marginBottom: "1.5rem"}}>
-            <h4 className='form-label add-product-label'>{prop.lang[3]}</h4>
+            
+              <div className="shadow-sm add-product-box">
+            <h5 className='form-label add-product-label'>{prop.lang[3]}</h5>
             <div className="card-group">
             {img.images.map((img, index) => {
             return(    
@@ -177,15 +188,15 @@ export function Products() {
             );   
             })}    
             <div className="card add-product-img-icon">
-                 <p>{progress && <CircularProgress />}</p>
+                 {progress && <p><CircularProgress /></p>}
                  <label for="add-product-image">
-                 <i className="icofont-plus-circle" style={{fontSize: "25px"}}></i>    
+                 <i className="icofont-plus-circle" style={{fontSize: "25px", cursor: "pointer"}}></i>    
                  </label>   
                  <input type="file" id="add-product-image" accept=".jpg, .png"
                  onChange={processImage}/>
             </div>
             </div>
             {error && <p>{prop.lang[4]}</p>}
-          </div>  
+            </div> 
           );
       }
