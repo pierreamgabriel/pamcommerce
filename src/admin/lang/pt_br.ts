@@ -42,6 +42,7 @@ export const _leftSideBar = [
 export const addProducts = [
   "Voltar para a lista de produtos",
   "Nome do produto",
+  "Nome na URL",
   "Descrição",
   "Imagens",
   "Ocorreu um erro ao fazer o upload da imagem. Por favor tente novamente.",

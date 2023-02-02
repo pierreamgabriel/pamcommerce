@@ -52,6 +52,7 @@ export const addProducts = [
   "Quantity",
   "Max per purchase",
   "Save",
+  "URL name",
 ];
 
 export const addCategories = [
