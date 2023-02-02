@@ -1,4 +1,4 @@
-import { SET_INSTALL_DETAILS } from "../actions/actionTypes";
+import { Types } from "../actions/actionTypes";
 
 const initialState = {
   dbname: "pamcommerce",
@@ -11,7 +11,7 @@ const initialState = {
 };
 
 interface Action {
-  type: typeof SET_INSTALL_DETAILS;
+  type: typeof Types.SET_INSTALL_DETAILS;
   payload: {
     key: string;
     value: string;
@@ -19,7 +19,7 @@ interface Action {
 }
 const reducer = (state = initialState, action: Action) => {
   switch (action.type) {
-    case SET_INSTALL_DETAILS:
+    case Types.SET_INSTALL_DETAILS:
       return { ...state, [action.payload.key]: action.payload.value };
     default:
       return state;

@@ -1,7 +1,8 @@
-import { ADD_PRODUCT_DETAILS } from "../actions/actionTypes";
+import { Types } from "../actions/actionTypes";
 
 const initialState = {
   name: "",
+  url: "",
   description: "",
   images: [],
   price: 0,
@@ -11,15 +12,16 @@ const initialState = {
 };
 
 interface Action {
-  type: typeof ADD_PRODUCT_DETAILS;
+  type: typeof Types.ADD_PRODUCT_DETAILS;
   payload: {
     value: string;
   };
+  task: 'add' | 'change'
 }
 
 const reducer = (state = initialState, action: Action) => {
   switch (action.type) {
-    case ADD_PRODUCT_DETAILS:
+    case Types.ADD_PRODUCT_DETAILS:
       return { ...state, ...action.payload };
     default:
       return state;

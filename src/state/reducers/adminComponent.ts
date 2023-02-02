@@ -1,4 +1,4 @@
-import { SET_ADMIN_COMPONENT } from "../actions/actionTypes";
+import { Types } from "../actions/actionTypes";
 
 export type ComponentsType =
   | "Dashboard"
@@ -19,7 +19,7 @@ const initialState = {
 };
 
 interface Action {
-  type: typeof SET_ADMIN_COMPONENT;
+  type: typeof Types.SET_ADMIN_COMPONENT;
   payload: {
     value: ComponentsType;
   };
@@ -27,7 +27,7 @@ interface Action {
 
 const reducer = (state = initialState, action: Action) => {
   switch (action.type) {
-    case SET_ADMIN_COMPONENT:
+    case Types.SET_ADMIN_COMPONENT:
       return { ...state, ...action.payload };
     default:
       return state;
