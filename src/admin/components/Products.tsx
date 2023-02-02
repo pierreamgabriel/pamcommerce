@@ -1,27 +1,22 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { DataGrid } from "@mui/x-data-grid";
 import Button from "@mui/material/Button";
 import { useDispatch, useSelector } from "react-redux";
-import { setAdminComponent, addProductDetails } from "../../state";
+import { setAdminComponent, addProductDetails, addProduct, loadProducts } from "../../state";
 import ReactQuill from "react-quill";
 import axios from "axios";
 import CircularProgress from "@mui/material/CircularProgress";
+import LinearProgress from "@mui/material/LinearProgress";
 import { RootState } from "../../state/reducers/reducers";
 
 export function Products() {
   const dispatch = useDispatch();
+  const site = useSelector((state: RootState) => state.settings);
+  const [products, setProducts] = useState<Array<object>>([]);
 
   const setSubCP = (arg: string) => {
     dispatch(setAdminComponent({ subcomponent: arg }));
   };
-
-  const columns = [
-    { field: "id", headerName: "ID", width: 70 },
-    { field: "product", headerName: "Product Name", width: 500 },
-    { field: "quantity", headerName: "Quantity", width: 90 },
-    { field: "price", headerName: "Price", width: 90 },
-    { field: "url", headerName: "URL", flex: 1 },
-  ];
   const rows = [
     {
       id: 1,
@@ -31,6 +26,25 @@ export function Products() {
       url: "http://localhost",
     },
   ];
+  useEffect(() => {
+    dispatch(loadProducts())
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
+
+  useEffect(() => {
+    if (site.productsList.length > 0) {
+      setProducts(site.productsList);
+    }
+  }, [site.productsList]);
+
+  const columns = [
+    { field: "id", headerName: "ID", width: 70 },
+    { field: "name", headerName: "Product Name", width: 500 },
+    { field: "quantity", headerName: "Quantity", width: 90 },
+    { field: "price", headerName: "Price", width: 90 },
+    { field: "url", headerName: "URL", flex: 1 },
+  ];
+
   return (
     <div className="container-fluid">
       <div className="row">
@@ -51,7 +65,7 @@ export function Products() {
       <div className="row">
         <div className="products-table">
           <DataGrid
-            rows={rows}
+            rows={products}
             columns={columns}
             pageSize={5}
             rowsPerPageOptions={[5]}
@@ -77,11 +91,21 @@ export function Products() {
 
 export function AddProduct() {
   const site = useSelector((state: RootState) => state.settings);
+  const status = useSelector((state: RootState) => state.status);
   const langFile = require("../lang/" + site.lang);
   const dispatch = useDispatch();
   const product = useSelector((state: RootState) => state.productDetails);
+  const [productUrl, setProductUrl] = useState<string | undefined>();
+
   const productDetails = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value, type } = e.target;
+
+    if (name === "url") {
+      const productUrl = value.replace(/[^a-zA-Z-]/g, "").toLowerCase();
+      setProductUrl(productUrl);
+      dispatch(addProductDetails({ [name]: productUrl }));
+      return;
+    }
 
     if (type === "number") {
       dispatch(addProductDetails({ [name]: parseInt(value) }));
@@ -89,9 +113,11 @@ export function AddProduct() {
       dispatch(addProductDetails({ [name]: value }));
     }
   };
+
   const textEditor = (value: string) => {
     dispatch(addProductDetails({ description: value }));
   };
+
   const modules = {
     toolbar: [
       [{ header: "1" }, { header: "2" }, { font: [] }],
@@ -108,6 +134,10 @@ export function AddProduct() {
     ],
   };
 
+  const handleSubmit = () => {
+    dispatch(addProduct(product));
+  };
+
   return (
     <div className="container-fluid new-product-main">
       &nbsp;
@@ -121,10 +151,22 @@ export function AddProduct() {
             {langFile.addProducts[1]}
           </h5>
           <input
-            type="name"
+            type="text"
             name="name"
             className="form-control"
             value={product.name}
+            onChange={productDetails}
+          ></input>
+        </div>
+        <div className="mb-3">
+          <h5 className="form-label add-product-label">
+            {langFile.addProducts[12]}
+          </h5>
+          <input
+            type="text"
+            name="url"
+            className="form-control"
+            value={productUrl}
             onChange={productDetails}
           ></input>
         </div>
@@ -194,7 +236,18 @@ export function AddProduct() {
           </div>
         </div>
       </div>
+      {status.isSaving && (
+        <div style={{ marginTop: "0.5rem" }}>
+          <LinearProgress />
+        </div>
+      )}
+      {status.isSavingProductError.status && (
+        <div style={{ marginTop: "0.5rem" }}>
+          <p>{status.isSavingProductError.msg}</p>
+        </div>
+      )}
       <Button
+        onClick={handleSubmit}
         variant="contained"
         type="button"
         style={{ marginTop: "1rem", marginBottom: "1rem" }}
