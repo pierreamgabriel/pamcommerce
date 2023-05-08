@@ -2,7 +2,12 @@ import { useEffect, useState } from "react";
 import { DataGrid } from "@mui/x-data-grid";
 import Button from "@mui/material/Button";
 import { useDispatch, useSelector } from "react-redux";
-import { setAdminComponent, addProductDetails, addProduct, loadProducts } from "../../state";
+import {
+  setAdminComponent,
+  addProductDetails,
+  addProduct,
+  loadProducts,
+} from "../../state";
 import ReactQuill from "react-quill";
 import axios from "axios";
 import CircularProgress from "@mui/material/CircularProgress";
@@ -17,19 +22,11 @@ export function Products() {
   const setSubCP = (arg: string) => {
     dispatch(setAdminComponent({ subcomponent: arg }));
   };
-  const rows = [
-    {
-      id: 1,
-      product: "Samsung Galaxy S22",
-      quantity: 500,
-      price: 799,
-      url: "http://localhost",
-    },
-  ];
+
   useEffect(() => {
-    dispatch(loadProducts())
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+    dispatch(loadProducts());
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   useEffect(() => {
     if (site.productsList.length > 0) {
@@ -290,7 +287,7 @@ function AddImages(prop: { lang: string }) {
       <div className="card-group">
         {img.images.map((img: string, index: number) => {
           return (
-            <div className="card list-product-img-div" key={index}>
+            <div className="card list-product-img-div" key={img}>
               <span>
                 <i className="icofont-edit" style={{ marginRight: "5px" }}></i>
                 <i className="icofont-ui-delete"></i>

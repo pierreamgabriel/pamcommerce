@@ -199,9 +199,9 @@ function Installation() {
                 }
               >
                 <option>Choose a language</option>
-                {langOptions.lang.map((option: string, index: number) => {
+                {langOptions.lang.map((option: string) => {
                   return (
-                    <option key={index} value={option}>
+                    <option key={option} value={option}>
                       {option}
                     </option>
                   );

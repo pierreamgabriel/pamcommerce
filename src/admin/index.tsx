@@ -69,7 +69,7 @@ function LeftBar(prop: { lang: string }) {
                 ? "row admin-leftbar-active"
                 : "row admin-leftbar-row"
             }
-            key={index}
+            key={Object.values(icon)[1]}
             onClick={() => setCP(cp)}
           >
             <div className="col admin-leftbar-col admin-leftbar-left-col">
